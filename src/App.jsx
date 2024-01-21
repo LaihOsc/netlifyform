@@ -43,7 +43,7 @@ function App() {
     <label>Message: <textarea name="message"></textarea></label>
   </p>
   <p>
-    <button onClick={handleSubmit}>Send</button>
+    <button onClick={handleSubmit} type='submit'>Send</button>
   </p>
 </form>
       </div>
