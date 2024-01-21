@@ -6,6 +6,21 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+  
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => navigate("/thank-you/"))
+      .catch((error) => alert(error));
+  };
+
   return (
     <>
       <div>
@@ -28,7 +43,7 @@ function App() {
     <label>Message: <textarea name="message"></textarea></label>
   </p>
   <p>
-    <button type="submit">Send</button>
+    <button onClick={handleSubmit}>Send</button>
   </p>
 </form>
       </div>
