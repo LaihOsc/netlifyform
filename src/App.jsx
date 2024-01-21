@@ -7,7 +7,6 @@ function App() {
   const [count, setCount] = useState(0)
 
   const handleSubmit = (event) => {
-    event.preventDefault();
   
     const myForm = event.target;
     const formData = new FormData(myForm);
